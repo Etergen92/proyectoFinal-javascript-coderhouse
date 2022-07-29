@@ -96,5 +96,49 @@
     grid-area: area3;
     color: #F6F6F6;
     text-align: center;
+}
 
+
+/* CSS Ofertas */
+
+.inicioPrincipalOfertas{
+    display: grid;
+    background-color: #007965;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "area1"
+        "area2"
+        "area3"
+    ;
+}
+
+
+.inicioPrincipal__productos{
+    grid-area: area2;
+    background-color: #F6F6F6;
+    text-align: center;
+}
+
+button > a{
+    text-decoration: none;
+}
+
+.formulario{
+    background-color: #F6F6F6;
+    padding:  10px;
+}
+
+.registroExitoso, .mensajeInicioSesion, .mensajeInicioIncorrecto{
+    margin: 10px;
+    font-weight: bold;
+    font-size: x-large;
+    color: #00AF91;  
+}
+
+.mensajeInicioIncorrecto{
+    color: #790000;  
+}
+
+form > button{
+    margin-top: 20px;
 }

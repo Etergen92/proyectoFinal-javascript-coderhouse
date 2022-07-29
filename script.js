@@ -20,12 +20,22 @@ class Producto{
 
 }
 
+class Usuario{
+    constructor(email, usuario, password, ciudad, provincia){
+        this.email = email
+        this.usuario = usuario;
+        this.password = password;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+    }
+}
+
 // Función muestra de ofertas en pagina principal:
 
 const mostrarProductosOferta = function(arrayProducto, elementoHTML){
     for(let producto of arrayProducto){
 
-        if(producto.precioOferta != ""){
+        if(producto.oferta == 'si'){
             elementoHTML.innerHTML += `
                 
                 <div class="card cardFlex" style="width: 18rem;">
@@ -35,8 +45,7 @@ const mostrarProductosOferta = function(arrayProducto, elementoHTML){
                     <p class="card-text">ID: ${producto.id}</p>
                     <p class="card-text">Tipo: ${producto.tipo}</p>
                     <p class="card-text">Stock: ${producto.stock}</p>
-                    <p class="card-text">Precio Anterior: ${producto.precio}</p>
-                    <p class="card-text">Precio Actual: ${producto.precioOferta}</p>
+                    <p class="card-text">Precio: ${producto.precio}</p>
                     <button class="btn btn-primary">Agregar al Carrito</button>
                     </div>
                 </div>
@@ -61,9 +70,18 @@ function aplicarDescuento(arrayProductos){
     console.log(productoModificar)
 }
 
-
 // Creacion de arreglo para cargar objetos:
-arrayProductos = [];
+let arrayProductos = [];
+let arrayCarrito = [];
+let arrayUsuario = [];
+
+// Recuperacion de usuarios guardados en local storage(junto con la conversion a objetos par apoder manipular) o creacion de "usuarios" en localStorage 
+// en caso de que se ingrese por primera vez:
+
+if(localStorage.getItem("usuarios")){
+    arrayUsuario = JSON.parse(localStorage.getItem("usuarios"));
+}else{localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))}
+
 
 // Carga de obejtos a arreglo productos:
 arrayProductos.push(new Producto(1, 'Matecito', 'mate', 7, 45, 'si'))
@@ -87,34 +105,99 @@ let productosTarjetas = document.getElementById('tarjetasProductos')
 
 // Captura de elemento por ID para agregar evento "input" y buscar producto deseado por el usuario:
 let elementoBuscar = document.getElementById("busquedaProductos")
-elementoBuscar.addEventListener('input', () => {
-    for(producto of arrayProductos){
-        if(elementoBuscar.value === producto.tipo){
 
-            // Agrego a HTML mediante DOM las tarjetas de los productos que coinciden con la búsqueda del usuario:
-            productosTarjetas.innerHTML += `
+if(elementoBuscar != null){
+    elementoBuscar.addEventListener('input', () => {
+        for(let producto of arrayProductos){
+            if(elementoBuscar.value === producto.tipo){
                 
-                <div class="card cardFlex animacionTarjeta" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-subtitle mb-2 text-muted">Nombre: ${producto.nombre}</h5>
-                    <p class="card-text">Tipo: ${producto.tipo}</p>
-                    <p class="card-text">Stock: ${producto.stock}</p>
-                    <p class="card-text">Precio: ${producto.precio}</p>
-                    <button class="btn btn-primary" id="botonAgregar">Agregar al Carrito</button>
+                // Agrego a HTML mediante DOM las tarjetas de los productos que coinciden con la búsqueda del usuario:
+                productosTarjetas.innerHTML += `
+                    <div class="card cardFlex m-3" style="width: 18rem;">
+                        <img src="./img/mateProducto.jpeg" class="card-img-top" alt="imagen mate">
+                        <div class="card-body">
+                        <h5 class="card-subtitle mb-2 text-muted">Nombre: ${producto.nombre}</h5>
+                        <p class="card-text">Tipo: ${producto.tipo}</p>
+                        <p class="card-text">Stock: ${producto.stock}</p>
+                        <p class="card-text">Precio: ${producto.precio}</p>
+                        <button class="btn btn-primary btnVerProducto">Agregar al Carrito</button>
+                        </div>
                     </div>
-                </div>
-                ` 
+                    ` 
+            }
         }
-    }
-})
+    })
+}
+
 
 // Evento "click" en boton para borrar de la pagina principal las tarjetas de productos buscados:
 let borrarTarjetas = document.getElementById("reestablecer")
-borrarTarjetas.addEventListener('click', () => {
-    for(producto of arrayProductos){
-            productosTarjetas.innerHTML = `` 
-        }
-})
 
+if(borrarTarjetas != null){
+    borrarTarjetas.addEventListener('click', () => {
+        for(let producto of arrayProductos){
+                productosTarjetas.innerHTML = `` 
+            }
+    })
+
+}
+
+// Evento para guardar mediante formulario nuevos usuarios
+
+let formularioUsuario = document.getElementById("formularioRegistro");
+let mensajeRegistro = document.getElementById("registroExito")
+
+if(formularioUsuario != null){
+    formularioUsuario.addEventListener("submit", (event) =>{
+        event.preventDefault()
+        let email = document.getElementById("inputEmail").value
+        let usuario = document.getElementById("inputUsuario").value
+        let password = document.getElementById("inputPassword").value
+        let ciudad = document.getElementById("inputCiudad").value
+        let provincia = document.getElementById("inputProvincia").value
     
+        const nuevoUsuario = new Usuario(email, usuario, password, ciudad, provincia)
+        arrayUsuario.push(nuevoUsuario)
+
+        // Guardado en localStorage el array con nuevo usuario registrado:
+        localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
+        formularioUsuario.reset()
+
+        // Mensaje de registro correctamente
+        mensajeRegistro.innerHTML = `
+        <p>Usted se ha registrado correctamente</p>
+        `
+        mensajeRegistro.classList.add("registroExitoso")
+
+    })
+}
+
+
+// Evento para buscar en array de usuarios(recuperado del localStorage) y poder iniciar sesión(si el usuario y contraseña estan correctos)
+
+let ingresoUsuario = document.getElementById("formularioIngreso")
+let ingresoMensaje = document.getElementById("mensajeInicioSesion")
+
+if(ingresoUsuario){
+    ingresoUsuario.addEventListener("submit", (event) =>{
+        event.preventDefault()
+        let usuarioIngreso = document.getElementById("inputUsuarioIngreso").value
+        let usuarioPassword = document.getElementById("inputPasswordIngreso").value
+
+        let usuarioRegistrado = arrayUsuario.find(usuario => usuario.usuario == usuarioIngreso)
+            if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword){
+                ingresoMensaje.innerHTML = `
+                <p>Bienvenido ${usuarioRegistrado.usuario}, has iniciado la sesión.</p>
+                `
+                ingresoMensaje.classList.add("mensajeInicioSesion")
+            }else{
+                ingresoMensaje.innerHTML = `
+                <p>Usuario o contraseña incorrectas</p>
+                `
+                ingresoMensaje.classList.add("mensajeInicioIncorrecto")
+            }
+    })
+}
+
+// Prueba para ver el total de usuarios registrados en el array
+console.log(arrayUsuario)
