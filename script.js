@@ -102,12 +102,15 @@ let productosTarjetas = document.getElementById('tarjetasProductos')
 
 
 // Captura de elemento por ID para agregar evento "input" y buscar producto deseado por el usuario:
-let elementoBuscar = document.getElementById("busquedaProductos")
+let elementoBuscar = document.getElementById("barraBusqueda")
 
 if(elementoBuscar != null){
-    elementoBuscar.addEventListener('input', () => {
+    elementoBuscar.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let elemento = document.getElementById("valorBuscado").value
+
         for(let producto of arrayProductos){
-            if(elementoBuscar.value === producto.tipo){
+            if(elemento === producto.tipo){
                 
                 // Agrego a HTML mediante DOM las tarjetas de los productos que coinciden con la búsqueda del usuario:
                 productosTarjetas.innerHTML += `

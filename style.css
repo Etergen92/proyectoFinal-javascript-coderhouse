@@ -57,16 +57,13 @@
     justify-content: space-around;
 }
 
-.barraBusqueda{
-    margin: 30px;
-}
-
-#busquedaProductos{
+.estiloBarra{
     width: 40%;
+    margin: 0 auto;
 }
 
-#reestablecer{
-    width: 5%;
+.grupoBotonesBusqueda{
+    margin: 10px;
 }
 
 .tarjetaSeccionesProductos{
@@ -137,8 +134,4 @@ button > a{
 
 .mensajeInicioIncorrecto{
     color: #790000;  
-}
-
-form > button{
-    margin-top: 20px;
 }

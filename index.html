@@ -30,9 +30,13 @@
             <p>Quo quisquam amet corporis saepe modi. Fugiat quos nostrum nulla cumque explicabo ratione mollitia ipsam dicta iste minima. Nisi quia eos et maiores. Corporis velit voluptatum, et a minus dolores.</p>
             
             <h2>Encuentre su producto</h2>
-            <div class="barraBusqueda">
-                <input type="text" name="" id="busquedaProductos" placeholder="Ingrese el producto a buscar"><input type="reset" id="reestablecer">
-            </div>
+            <form id="barraBusqueda">
+                <input class="form-control estiloBarra" type="text" name="" id="valorBuscado" placeholder="Ingrese el producto a buscar">
+                <div class="grupoBotonesBusqueda">
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                    <button class="btn btn-success" type="reset" id="reestablecer">Reestablecer</button>
+                </div>    
+            </form>
             <div class="tarjetasMuestra" id="tarjetasProductos">
                 
 
