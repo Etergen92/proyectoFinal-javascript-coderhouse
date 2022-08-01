@@ -21,10 +21,10 @@ class Producto{
 }
 
 class Usuario{
-    constructor(email, usuario, password, ciudad, provincia){
-        this.email = email
+    constructor(usuario, password, email, ciudad, provincia){
         this.usuario = usuario;
         this.password = password;
+        this.email = email
         this.ciudad = ciudad;
         this.provincia = provincia;
     }
@@ -77,11 +77,9 @@ let arrayUsuario = [];
 
 // Recuperacion de usuarios guardados en local storage(junto con la conversion a objetos par apoder manipular) o creacion de "usuarios" en localStorage 
 // en caso de que se ingrese por primera vez:
+// Reemplazar por ternario
 
-if(localStorage.getItem("usuarios")){
-    arrayUsuario = JSON.parse(localStorage.getItem("usuarios"));
-}else{localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))}
-
+localStorage.getItem("usuarios") ? arrayUsuario = JSON.parse(localStorage.getItem("usuarios")) : localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
 
 // Carga de obejtos a arreglo productos:
 arrayProductos.push(new Producto(1, 'Matecito', 'mate', 7, 45, 'si'))
@@ -133,14 +131,14 @@ if(elementoBuscar != null){
 // Evento "click" en boton para borrar de la pagina principal las tarjetas de productos buscados:
 let borrarTarjetas = document.getElementById("reestablecer")
 
-if(borrarTarjetas != null){
-    borrarTarjetas.addEventListener('click', () => {
+//Uso de operador logico &&
+
+borrarTarjetas != null && borrarTarjetas.addEventListener('click', () => {
         for(let producto of arrayProductos){
                 productosTarjetas.innerHTML = `` 
             }
     })
 
-}
 
 // Evento para guardar mediante formulario nuevos usuarios
 
@@ -150,13 +148,13 @@ let mensajeRegistro = document.getElementById("registroExito")
 if(formularioUsuario != null){
     formularioUsuario.addEventListener("submit", (event) =>{
         event.preventDefault()
-        let email = document.getElementById("inputEmail").value
         let usuario = document.getElementById("inputUsuario").value
         let password = document.getElementById("inputPassword").value
+        let email = document.getElementById("inputEmail").value
         let ciudad = document.getElementById("inputCiudad").value
         let provincia = document.getElementById("inputProvincia").value
     
-        const nuevoUsuario = new Usuario(email, usuario, password, ciudad, provincia)
+        const nuevoUsuario = new Usuario(usuario, password, email, ciudad, provincia)
         arrayUsuario.push(nuevoUsuario)
 
         // Guardado en localStorage el array con nuevo usuario registrado:
@@ -185,9 +183,13 @@ if(ingresoUsuario){
         let usuarioPassword = document.getElementById("inputPasswordIngreso").value
 
         let usuarioRegistrado = arrayUsuario.find(usuario => usuario.usuario == usuarioIngreso)
+
+            // Desestructuracion objeto usuarioRegistrado
+            let{usuario} = usuarioRegistrado
+
             if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword){
                 ingresoMensaje.innerHTML = `
-                <p>Bienvenido ${usuarioRegistrado.usuario}, has iniciado la sesión.</p>
+                <p>Bienvenido ${usuario}, has iniciado la sesión.</p>
                 `
                 ingresoMensaje.classList.add("mensajeInicioSesion")
             }else{
