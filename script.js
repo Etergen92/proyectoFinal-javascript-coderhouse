@@ -137,11 +137,10 @@ let borrarTarjetas = document.getElementById("reestablecer")
 //Uso de operador logico &&
 
 borrarTarjetas != null && borrarTarjetas.addEventListener('click', () => {
-        for(let producto of arrayProductos){
-                productosTarjetas.innerHTML = `` 
-            }
+        arrayProductos.forEach(() => {
+            productosTarjetas.innerHTML = ``
+        });
     })
-
 
 // Evento para guardar mediante formulario nuevos usuarios
 
@@ -164,15 +163,13 @@ if(formularioUsuario != null){
         localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
         formularioUsuario.reset()
 
-        // Mensaje de registro correctamente
-        mensajeRegistro.innerHTML = `
-        <p>Usted se ha registrado correctamente</p>
-        `
-        mensajeRegistro.classList.add("registroExitoso")
-
+        Swal.fire({
+            icon: 'success',
+            title: 'Felicitaciones !',
+            text: 'Usted se ha registrado de manera exitosa',
+        })
     })
 }
-
 
 // Evento para buscar en array de usuarios(recuperado del localStorage) y poder iniciar sesión(si el usuario y contraseña estan correctos)
 
@@ -187,19 +184,25 @@ if(ingresoUsuario){
 
         let usuarioRegistrado = arrayUsuario.find(usuario => usuario.usuario == usuarioIngreso)
 
-            // Desestructuracion objeto usuarioRegistrado
-            let{usuario} = usuarioRegistrado
-
-            if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword){
-                ingresoMensaje.innerHTML = `
-                <p>Bienvenido ${usuario}, has iniciado la sesión.</p>
-                `
-                ingresoMensaje.classList.add("mensajeInicioSesion")
+        
+        if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword){
+                // Desestructuracion objeto usuarioRegistrado
+                let{usuario} = usuarioRegistrado
+                Swal.fire({
+                    icon: 'success',
+                    title: `Bienvenido ${usuario}!`,
+                    text: 'Usted ha iniciado sesion de manera exitosa',
+                })
             }else{
-                ingresoMensaje.innerHTML = `
-                <p>Usuario o contraseña incorrectas</p>
-                `
-                ingresoMensaje.classList.add("mensajeInicioIncorrecto")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Contraseña o usuario incorrectos',
+                  })
+                // ingresoMensaje.innerHTML = `
+                // <p>Usuario o contraseña incorrectas</p>
+                // `
+                // ingresoMensaje.classList.add("mensajeInicioIncorrecto")
             }
     })
 }
