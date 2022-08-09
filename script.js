@@ -143,12 +143,14 @@ if(elementoBuscar != null){
     })
 }
 
+// Mostrar dinamicamente productos en pagina "Mostrar Productos"
+
 let productosMostrar = document.getElementById("mostrarProductos")
 
 if(productosMostrar){
     
     arrayProductos.forEach((producto, index) => { 
-            // Agrego a HTML mediante DOM las tarjetas de los productos que coinciden con la búsqueda del usuario:
+    
             productosMostrar.innerHTML += `
                 <div class="card cardFlex m-3" id="producto${index}" style="width: 18rem;">
                     <img src="../img/mateProducto.jpeg" class="card-img-top" alt="imagen mate">
@@ -165,6 +167,8 @@ if(productosMostrar){
     });
 }
 
+
+// Programa para agregar productos al carrito mediante evento "click"
 if(productosMostrar){
 
     arrayProductos.forEach((producto, index) => {
@@ -173,6 +177,7 @@ if(productosMostrar){
             arrayCarrito.push(productoAgregar)
             console.log(arrayCarrito)
     
+            // Toastify para indicar que el producto se agrego al carro
             Toastify({
                 text: "Producto agregado al Carrito",
                 duration: 5000,
@@ -263,24 +268,3 @@ if(ingresoUsuario){
             }
     })
 }
-
-// arrayProductos.forEach((producto, index) => {
-//     document.getElementById(`producto${index}`).lastElementChild.lastElementChild.addEventListener("click", () => {
-//         let productoAgregar = producto
-//         arrayCarrito.push(productoAgregar)
-//     })
-// });
-
-
-// if(productoAgregarCarrito){
-//     productoAgregarCarrito.addEventListener("click")
-
-
-// }
-// console.log(productoAgregarCarrito)
-
-// Prueba para ver el total de usuarios registrados en el array
-console.log(arrayUsuario)
-
-console.log(arrayProductos)
-
