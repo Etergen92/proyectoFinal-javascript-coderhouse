@@ -29,6 +29,12 @@ class Usuario{
     }
 }
 
+// Prueba fectch JSON local de productos:
+
+fetch("./json/productos.json")
+.then(response => response.json())
+.then(data => console.log(data))
+
 // Función muestra de ofertas en pagina principal:
 
 const mostrarProductosOferta = function(arrayProducto, elementoHTML){
