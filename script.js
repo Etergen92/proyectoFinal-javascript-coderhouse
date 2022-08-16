@@ -27,13 +27,15 @@ let arrayProductos = [];
 let arrayCarrito = [];
 let arrayUsuario = [];
 
+// Prueba fetch JSON local para carga de productos con funcion asincronica:
+
 async function mostrarProductos(){
     const productos = await fetch("../json/productos.json")
     const productosParse = await productos.json()
     return productosParse
 }
 
-// Prueba fetch JSON local para carga de productos:
+// Prueba fetch JSON local para carga de productos con clases en arrayProductos:
 
 fetch("../json/productos.json")
 .then(response => response.json())
@@ -81,25 +83,6 @@ console.log(arrayProductos)
 let productosMostrar = document.getElementById("mostrarProductos")
 
 console.log(arrayProductos)
-
-// if(productosMostrar){
-//     arrayProductos.forEach((producto, index) => { 
-    
-//         productosMostrar.innerHTML += `
-//             <div class="card cardFlex m-3" id="producto${index}" style="width: 18rem;">
-//                 <img src="" class="card-img-top" alt="imagen mate">
-//                 <div class="card-body">
-//                     <h5 class="card-subtitle mb-2 text-muted">${producto.nombre}</h5>
-//                     <p class="card-text">Marca: ${producto.marca}</p>
-//                     <p class="card-text">Tipo: ${producto.tipo}</p>
-//                     <p class="card-text">Stock: ${producto.stock}</p>
-//                     <p class="card-text">Precio: ${producto.precio}</p>
-//                     <button class="btn btn-primary">Agregar al Carrito</button>
-//                 </div>
-//             </div>
-//         ` 
-//     });
-// }
 
 mostrarProductos().then(productos =>{
 
