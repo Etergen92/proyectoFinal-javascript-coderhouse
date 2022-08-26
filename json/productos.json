@@ -5,7 +5,6 @@
         "marca": "Canarias",
         "peso": "1000gr",
         "precio": 1415,
-        "stock": 30,
         "img": "yerba-canarias.jpg"
     },
     {
@@ -14,16 +13,14 @@
         "marca": "Amanda",
         "peso": "1000gr",
         "precio": 820,
-        "stock": 30,
         "img": "yerba-amanda.jpg"
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba La Tranquera Selección Especial",
+        "nombre": "Yerba La Tranquera Selección",
         "marca": "La Tranquera",
         "peso": "1000gr",
         "precio": 900,
-        "stock": 30,
         "img": "yerba-tranquera.jpg"
     },
     {
@@ -32,16 +29,14 @@
         "marca": "Porongo",
         "peso": "500gr",
         "precio": 850,
-        "stock": 30,
         "img": "yerba-porongo.jpg"
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Romance",
+        "nombre": "Yerba Mate Romance",
         "marca": "Romance",
         "peso": "2000gr",
         "precio": 1500,
-        "stock": 30,
         "img": "yerba-romance.jpg"
     },
     {
@@ -50,7 +45,6 @@
         "marca": "Mañanita",
         "peso": "1000gr",
         "precio": 999,
-        "stock": 30,
         "img": "yerba-mananita.jpg"
     },
     {
@@ -59,17 +53,7 @@
         "marca": "Mañanita",
         "peso": "500gr",
         "precio": 599,
-        "stock": 30,
         "img": "yerba-mananita.jpg"
-    },
-    {
-        "tipo": "yerba",
-        "nombre": "Yerba Mate Playadito",
-        "marca": "Playadito",
-        "peso": "1000gr",
-        "precio": 750,
-        "stock": 30,
-        "img": "yerba-playadito.jpg"
     },
     {
         "tipo": "yerba",
@@ -77,25 +61,14 @@
         "marca": "Playadito",
         "peso": "500gr",
         "precio": 422,
-        "stock": 30,
         "img": "yerba-playadito.jpg"
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Cruz de Malta Selección Especial",
+        "nombre": "Yerba Cruz de Malta Selección",
         "marca": "Cruz de Malta",
         "peso": "1000gr",
         "precio": 735,
-        "stock": 30,
-        "img": "yerba-cruzmalta.jpg"
-    },
-    {
-        "tipo": "yerba",
-        "nombre": "Yerba Cruz de Malta Selección Especial",
-        "marca": "Cruz de Malta",
-        "peso": "500gr",
-        "precio": 346,
-        "stock": 30,
         "img": "yerba-cruzmalta.jpg"
     },
     {
@@ -104,16 +77,14 @@
         "marca": "Nobleza Gaucha",
         "peso": "1000gr",
         "precio": 782,
-        "stock": 30,
         "img": "yerba-nobleza.jpg"
     },
     {
         "tipo": "yerba",
-        "nombre": "Nobleza Gaucha Selección",
+        "nombre": "Nobleza Gaucha Selección Especial",
         "marca": "Nobleza Gaucha",
         "peso": "500gr",
         "precio": 408,
-        "stock": 30,
         "img": "yerba-nobleza.jpg"
     },
     {
@@ -122,7 +93,6 @@
         "marca": "Taragui",
         "peso": "1000gr",
         "precio": 781,
-        "stock": 30,
         "img": "yerba-taragui.jpg"
     },
     {
@@ -131,7 +101,6 @@
         "marca": "Taragui",
         "peso": "500gr",
         "precio": 381,
-        "stock": 30,
         "img": "yerba-taragui.jpg"
     },
     {
@@ -140,7 +109,6 @@
         "marca": "Taragui",
         "peso": "250gr",
         "precio": 222,
-        "stock": 30,
         "img": "yerba-taragui.jpg"
     },
     {
@@ -149,7 +117,6 @@
         "marca": "Rosamonte",
         "peso": "1000gr",
         "precio": 854,
-        "stock": 30,
         "img": "yerba-rosamonte.jpg"
     },
     {
@@ -158,7 +125,6 @@
         "marca": "Rosamonte",
         "peso": "500gr",
         "precio": 520,
-        "stock": 30,
         "img": "yerba-rosamonte.jpg"
     },
     {
@@ -167,7 +133,6 @@
         "marca": "Piporé",
         "peso": "500gr",
         "precio": 599,
-        "stock": 30,
         "img": "yerba-pipore.jpg"
     },    
     {
@@ -176,7 +141,6 @@
         "marca": "Lago",
         "modelo": "Pico de Loro",
         "precio": 999,
-        "stock": 20,
         "img": "bombilla-lago-loro.jpg"
     },
     {
@@ -185,7 +149,6 @@
         "marca": "Matte",
         "modelo": "Plana Resorte",
         "precio": 1350,
-        "stock": 20,
         "img": "bombilla-matte-plana.jpg"
     },
     {
@@ -194,7 +157,6 @@
         "marca": "Global Ross",
         "modelo": "Plana",
         "precio": 399,
-        "stock": 20,
         "img": "bombilla-ross-plana.jpg"
     },
     {
@@ -203,7 +165,6 @@
         "marca": "Stanley",
         "modelo": "Plana Resorte",
         "precio": 6700,
-        "stock": 20,
         "img": "bombilla-stanley.jpg"
     },
     {
@@ -212,7 +173,6 @@
         "marca": "Alacuero",
         "modelo": "Pico de Rey",
         "precio": 950,
-        "stock": 20,
         "img": "bombilla-alacuero-rey.jpg"
     },
     {
@@ -221,7 +181,6 @@
         "marca": "Matucha",
         "modelo": "Pico de Loro",
         "precio": 800,
-        "stock": 20,
         "img": "bombilla-matucha.jpg"
     },
     {
@@ -230,7 +189,6 @@
         "marca": "Un Mate",
         "modelo": "Plana",
         "precio": 1680,
-        "stock": 20,
         "img": "bombilla-unmate-plana.jpg"
     },
     {
@@ -239,7 +197,6 @@
         "marca": "Loekemeyer",
         "modelo": "Autolimpiante Resorte",
         "precio": 725,
-        "stock": 20,
         "img": "bombilla-loekemeyer-autolimpiante.jpg"
     },
     {
@@ -248,7 +205,6 @@
         "marca": "Mate Urbano",
         "modelo": "Sacayerba",
         "precio": 399,
-        "stock": 20,
         "img": "bombilla-mateurbano-sacayerba.jpg"
     },
     {
@@ -257,7 +213,6 @@
         "marca": "Homeinox",
         "modelo": "Plana Resorte",
         "precio": 1485,
-        "stock": 20,
         "img": "bombilla-homeinox-plana.jpg"
     },
     {
@@ -267,7 +222,6 @@
         "modelo": "Luminox",
         "capacidad": "1lt",
         "precio": 8500,
-        "stock": 20,
         "img": "termo-lumilagro-1lt.jpg"
     },
     {
@@ -277,7 +231,6 @@
         "modelo": "2070897",
         "capacidad": "1.2lt",
         "precio": 18999,
-        "stock": 20,
         "img": "termo-contigo-1-2lt.jpg"
     },
     {
@@ -287,7 +240,6 @@
         "modelo": "Chimarrita",
         "capacidad": "1lt",
         "precio": 2174,
-        "stock": 20,
         "img": "termo-termolar-1lt.jpg"
     },
     {
@@ -297,7 +249,6 @@
         "modelo": " Black Stone",
         "capacidad": "0.75lt",
         "precio": 12697,
-        "stock": 20,
         "img": "termo-kovea-0-75lt.jpg"
     },
     {
@@ -307,7 +258,6 @@
         "modelo": "Doite Max",
         "capacidad": "1lt",
         "precio": 16340,
-        "stock": 20,
         "img": "termo-doite-1lt.jpg"
     },
     {
@@ -317,7 +267,6 @@
         "modelo": "Matero",
         "capacidad": "1.2lt",
         "precio": 24499,
-        "stock": 20,
         "img": "termo-coleman-1-2lt.jpg"
     },
     {
@@ -327,7 +276,6 @@
         "modelo": "TA A",
         "capacidad": "1lt",
         "precio": 13250,
-        "stock": 20,
         "img": "termo-waterdog-1lt.jpg"
     },
     {
@@ -337,7 +285,6 @@
         "modelo": "Clasico",
         "capacidad": "1.4lt",
         "precio": 22999,
-        "stock": 20,
         "img": "termo-stanley-1-4lt.jpg"
     },
     {
@@ -347,7 +294,6 @@
         "modelo": "Personal",
         "capacidad": "1lt",
         "precio": 1799,
-        "stock": 20,
         "img": "termo-termolar-1lt.jpg"
     },
     {
@@ -357,7 +303,6 @@
         "modelo": "Everest",
         "capacidad": "1lt",
         "precio": 12100,
-        "stock": 20,
         "img": "termo-humma-1lt.jpg"
     },
     {
@@ -367,7 +312,6 @@
         "modelo": "Adventure",
         "capacidad": "1lt",
         "precio": 5999,
-        "stock": 20,
         "img": "termo-discovery-1lt.jpg"
     },
     {
@@ -377,7 +321,6 @@
         "modelo": "Bala",
         "capacidad": "1lt",
         "precio": 3699,
-        "stock": 20,
         "img": "termo-munich-1lt.jpg"
     },
     {
@@ -387,7 +330,6 @@
         "modelo": "Auto Mate 2.0",
         "capacidad": "500ml",
         "precio": 1400,
-        "stock": 20,
         "img": "termo-pauza-500ml.jpg"
     },
     {
@@ -397,7 +339,6 @@
         "modelo": "Bala",
         "capacidad": "1lt",
         "precio": 14000,
-        "stock": 20,
         "img": "termo-montagne-1lt.jpg"
     },
     {
@@ -406,7 +347,6 @@
         "marca": "Dos Amigos",
         "modelo": "Calabaza Camionero",
         "precio": 3299,
-        "stock": 20,
         "img": "mate-dosamigos.jpg"
     },
     {
@@ -415,7 +355,6 @@
         "marca": "F&V",
         "modelo": "Viajero",
         "precio": 1900,
-        "stock": 20,
         "img": "mate-f&v.jpg"
     },
     {
@@ -424,7 +363,6 @@
         "marca": "Doro",
         "modelo": "Acero Termico",
         "precio": 5298,
-        "stock": 20,
         "img": "mate-doro.jpg"
     },
     {
@@ -433,7 +371,6 @@
         "marca": "Chaco",
         "modelo": "Chaquito",
         "precio": 4600,
-        "stock": 20,
         "img": "mate-chaco.jpg"
     },
     {
@@ -442,7 +379,6 @@
         "marca": "Criollo",
         "modelo": "Ceramica",
         "precio": 2849,
-        "stock": 20,
         "img": "mate-criollo.jpg"
     },
     {
@@ -451,7 +387,6 @@
         "marca": "Stanley",
         "modelo": "Clasico",
         "precio": 11500,
-        "stock": 20,
         "img": "mate-stanley.jpg"
     },
     {
@@ -460,7 +395,6 @@
         "marca": "Discovery",
         "modelo": "Adventure",
         "precio": 5999,
-        "stock": 20,
         "img": "mate-discovery.jpg"
     },
     {
@@ -469,7 +403,6 @@
         "marca": "Clasico",
         "modelo": "Calabaza Camionero",
         "precio": 6490,
-        "stock": 20,
         "img": "mate-legion.jpg"
     },
     {
@@ -478,7 +411,6 @@
         "marca": "Waterdog",
         "modelo": "Zoilo",
         "precio": 4800,
-        "stock": 20,
         "img": "mate-waterdog.jpg"
     },
     {
@@ -487,7 +419,6 @@
         "marca": "Matte",
         "modelo": "Vasito",
         "precio": 3900,
-        "stock": 20,
         "img": "mate-matte.jpg"
     },
     {
@@ -496,7 +427,6 @@
         "marca": "Uniprovedores",
         "modelo": "Uni 2.0",
         "precio": 274,
-        "stock": 20,
         "img": "filtro-uniproveedores.jpg"
     },
     {
@@ -505,7 +435,6 @@
         "marca": "Bazar & Co",
         "modelo": "Stop Filt",
         "precio": 690,
-        "stock": 20,
         "img": "filtro-stopfilt.jpg"
     },
     {
@@ -514,7 +443,6 @@
         "marca": "Loekemeyer",
         "modelo": "550D",
         "precio": 390,
-        "stock": 20,
         "img": "filtro-loekemeyer.jpg"
     },
     {
@@ -523,7 +451,6 @@
         "marca": "Costumbres Argentinas",
         "modelo": "2230F",
         "precio": 3900,
-        "stock": 20,
         "img": "filtro-costumbresargentinas.jpg"
     },
     {
@@ -532,7 +459,6 @@
         "marca": "Despol",
         "modelo": "Clasico",
         "precio": 880,
-        "stock": 20,
         "img": "despolvillador-despol.jpg"
     },
     {
@@ -541,7 +467,6 @@
         "marca": "Artplan",
         "modelo": "Clasico",
         "precio": 510,
-        "stock": 20,
         "img": "despolvillador-artplan.jpg"
     },
     {
@@ -550,7 +475,6 @@
         "marca": "Dublin",
         "modelo": "Decantador",
         "precio": 590,
-        "stock": 20,
         "img": "despolvillador-dublin.jpg"
     },
     {
@@ -559,7 +483,6 @@
         "marca": "Florida",
         "modelo": "Clasico",
         "precio": 620,
-        "stock": 20,
         "img": "despolvillador-florida.jpg"
     },
     {
@@ -568,7 +491,6 @@
         "marca": "Bazar",
         "modelo": "Cepillin 2.0",
         "precio": 250,
-        "stock": 20,
         "img": "cepillo-bazar.jpg"
     },
     {
@@ -577,7 +499,6 @@
         "marca": "Romyl",
         "modelo": "Clasico",
         "precio": 400,
-        "stock": 20,
         "img": "cepillo-romyl.jpg"
     }
 

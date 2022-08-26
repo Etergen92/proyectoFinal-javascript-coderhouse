@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&family=Rubik+Dirt&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8c130e0191.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Proyecto Final - ECommerce</title>
+    <title>Matero - ECommerce</title>
 </head>
 <body class="inicioPrincipal">    
     <nav class="inicioPrincipal__nav">
-        <h1>E-Commerce</h1>
+        <div class="navBar-titulo">
+            <img src="./img/mate-2.svg" alt="logo mate" class="logoMate"><h1 class="tituloPagina">Matero</h1> 
+        </div>
         <div>
             <ul class="inicioPrincipal__nav--logCarrito">
                 <li><a href=""><i class="fa-solid fa-house"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-cart-shopping" id="carrito"></i></a></li>
+                <li><a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="carrito">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a></li>
                 <li><a href="./pages/login.html"><i class="fa-solid fa-user"></i></a></li>
             </ul>
         </div>
@@ -24,26 +31,12 @@
 
     <main class="inicioPrincipal__info">
         <div class="inicioPrincipal__info--bienvenida">
-            <h1>Bienvenido al E-Commerce</h1>
+            <h1 class="tituloPagina">Bienvenido a Matero E-Commerce</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit est consectetur obcaecati labore doloribus recusandae maxime, non id ullam voluptates, quos quis ea assumenda reiciendis beatae aliquam quas. Quos, reprehenderit.</p>
             <p>Nemo perspiciatis, rerum voluptas, quisquam molestiae inventore quasi explicabo unde, veniam odit consequuntur dolorum. Possimus qui perspiciatis magnam inventore voluptatem autem consectetur ratione maxime ex? Ex cum totam nostrum quas.</p>
             <p>Id facere rerum sed ducimus, quo repellat praesentium suscipit eius inventore voluptate perferendis quibusdam dolor omnis quisquam nesciunt iure impedit. Illo voluptas suscipit aut soluta earum, voluptate accusantium placeat aspernatur?</p>
             <p>Velit saepe doloremque quam nobis. Suscipit praesentium repellat blanditiis laudantium, culpa facere nisi possimus obcaecati minima voluptates esse, pariatur eligendi dolorum architecto, dolore temporibus maxime ad minus explicabo animi quaerat.</p>
             <p>Quo quisquam amet corporis saepe modi. Fugiat quos nostrum nulla cumque explicabo ratione mollitia ipsam dicta iste minima. Nisi quia eos et maiores. Corporis velit voluptatum, et a minus dolores.</p>
-            
-            <h2>Encuentre su producto</h2>
-            <form id="barraBusqueda">
-                <input class="form-control estiloBarra" type="text" name="" id="valorBuscado" placeholder="Ingrese el producto a buscar">
-                <div class="grupoBotonesBusqueda">
-                    <button class="btn btn-success" type="submit">Buscar</button>
-                    <button class="btn btn-success" type="reset" id="reestablecer">Reestablecer</button>
-                </div>    
-            </form>
-            <div class="tarjetasMuestra" id="tarjetasProductos">
-                
-
-
-            </div>
         </div> 
 
         <div class="inicioPrincipal__seccionesProductos">
@@ -51,7 +44,7 @@
                 <img class="tarjetaSeccionesProductos__img" src="./img/foto-nuevos-productos.jpg" alt="mate con yerba">
                 <div class="tarjetaSeccionesProductos__flex">
                     <h3>Conoce nuestros Productos</h3>
-                    <button id="nuevosProductos" class="tarjetaSeccionesProductos__btn"><a href="./pages/mostrar-producto.html">Nuestros Productos</a></button>
+                    <button type="button" class="btn btn-light botonesIndex"><a href="./pages/mostrar-producto.html">Nuestros Productos</a></button>
                 </div>
 
             </div>
@@ -59,19 +52,118 @@
                 <img class="tarjetaSeccionesProductos__img" src="./img/foto-ofertas.jpeg" alt="yerba">
                 <div class="tarjetaSeccionesProductos__flex">
                     <h3>Conocé sobre Nosotros</h3>
-                    <button id="nuevasOfertas" class="tarjetaSeccionesProductos__btn" ><a href="">Sobre Nosotros</a></button>
+                    <button type="button" class="btn btn-light botonesIndex"><a href="#nosotros">Sobre Nosotros</a></button>
                 </div>
             </div>
 
-        </div>    
+        </div>   
 
-        <section>
+        <div>
+            <h2 class="separadorSecciones" id="nosotros">Nosotros</h2>
+            <div class="nuestraHistoria">
+                <img src="./img/mate-bienvenida.jpg" class="imgNosotros" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius sed aspernatur adipisci libero blanditiis nesciunt, optio modi voluptas consectetur dolorum cupiditate quaerat vitae necessitatibus dolor laudantium iure quisquam voluptatum distinctio!
+                Placeat velit et nesciunt deserunt cupiditate recusandae obcaecati ea, eum repellendus quibusdam amet? Voluptatem nesciunt quidem optio assumenda voluptatibus suscipit quasi non saepe ab neque adipisci veniam, cupiditate nisi voluptate!
+                Minima, atque quas dolorem dolores libero, nobis excepturi adipisci nesciunt eveniet quia quibusdam eaque omnis velit repudiandae deserunt necessitatibus iste! Non dicta provident iusto maxime, eveniet cum unde neque aspernatur?
+                Debitis mollitia quisquam minus nulla earum placeat quidem magni iste, blanditiis laboriosam consequatur ipsum exercitationem, cum beatae excepturi fugiat quos accusantium veniam sed, maxime dolore nobis atque! Cumque, odit quod?
+                A repudiandae iure sequi recusandae tempora cupiditate, fuga eveniet, aliquid architecto quam magni. Eius, omnis harum? Ullam assumenda porro iste molestias quod voluptates fugiat, quia, dolorem alias ipsum beatae? Eius.</p>
+            </div>
+        </div>
 
-        </section>
+        <div>
+            <h2 class="separadorSecciones">Contactanos</h2>
+            <div class="contactoClientes">
+              <!-- <form action="" method="" enctype="" class="formContacto">
+                <div class="datos-input">
+                    <label class="etiqueta-input" for="nombre">Nombre: </label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div class="datos-input">
+                    <label class="etiqueta-input" for="nombre">Apellido: </label>
+                    <input type="text" name="apellido" id="apellido">
+                </div>
+                <div class="datos-input">
+                    <label class="etiqueta-input" for="correo">E-mail: </label>
+                    <input type="email" name="correo" id="correo">
+                </div>
+
+                <div>
+                    <h3 class="subtituloFormulario">Motivo de Contacto</h3>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>e
+                </div>
+
+                <div>
+                <h3 class="subtituloFormulario">Como nos conociste ?</h3>
+                    <checkbox name="instrumento" id="instrumento">
+                        <option value="guitarra">Guitarra</option>
+                        <option value="bajo">Bajo</option>
+                        <option value="violin">Violin</option>
+                        <option value="viola">Viola</option>
+                    </checkbox>
+                </div>
+                <div class="botonesFormulario">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form> -->
+                <form class="formContacto">
+                    <div class="mb-3">
+                      <label for="inputEmail" class="form-label sm">Email</label>
+                      <input type="email" class="form-control-md" id="inputEmail" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputNombre" class="form-label">Nombre y Apellido</label>
+                      <input type="password" class="form-control-md" id="inputNombre">
+                    </div>
+                    <div class="">
+                        <h5>Como nos conociste ?</h5>
+                        <textarea class="form-control" id="consultaTexto"></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Instagram</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">Facebook</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">Otro</label>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878894506!2d-58.38375908417492!3d-34.603734465007136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1661470799807!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Mi Carrito</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div id="cuerpoCarrito">
+    
+                    
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" id="vaciarCarrito">Vaciar Carrito</button>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir Comprando</button>
+                  <button type="button" class="btn btn-primary" id="finalizarCompra">Finalizar Compra</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </main>
 
     <footer class="inicioPrincipal__footer">
-        <h2>Mi footer</h2>
+        <div class="navBar-titulo">
+            <img src="./img/mate-2.svg" alt="logo mate" class="logoMate"><h1 class="tituloPagina">Matero</h1> 
+        </div>
+        <p class="derechosReservados">Derechos Reservados 2022 ©</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>

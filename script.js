@@ -4,12 +4,20 @@ class Producto{
     constructor(nombre, tipo, stock, precio, marca, imagen){
         this.nombre = nombre;
         this.tipo = tipo;
-        this.stock = stock;
         this.precio = precio;
         this.marca = marca
         this.imagen = imagen;
     }
     
+}
+
+const sumaCarrito = (array) =>{
+    let total = 0
+    array.forEach((producto) =>{
+        total += producto.precio
+    })
+
+    return total
 }
 
 class Usuario{
@@ -23,7 +31,7 @@ class Usuario{
 }
 
 // Creacion de arreglo para cargar objetos:
-let arrayProductos = [];
+const arrayProductos = [];
 let arrayCarrito = [];
 let arrayUsuario = [];
 
@@ -32,142 +40,67 @@ let arrayUsuario = [];
 async function mostrarProductos(){
     const productos = await fetch("../json/productos.json")
     const productosParse = await productos.json()
-    return productosParse
-}
-
-// Prueba fetch JSON local para carga de productos con clases en arrayProductos:
-
-fetch("../json/productos.json")
-.then(response => response.json())
-.then(productos => productos.forEach(producto => {
-    ({tipo, nombre, marca, peso, precio, stock, img} = producto)
-    arrayProductos.push(new Producto(nombre, tipo, stock, precio, marca, img))
-}))
-
-// Captura de elemento por ID para agregar evento "input" y buscar producto deseado por el usuario:
-let elementoBuscar = document.getElementById("barraBusqueda")
-
-if(elementoBuscar != null){
-    elementoBuscar.addEventListener('submit', (event) => {
-        event.preventDefault()
-        let elemento = document.getElementById("valorBuscado").value
-
-        arrayProductos.forEach((producto, index) => {
-            if(elemento === producto.tipo){
-                
-                // Agrego a HTML mediante DOM las tarjetas de los productos que coinciden con la búsqueda del usuario:
-                productosTarjetas.innerHTML += `
-                    <div class="card cardFlex m-3" id="producto${index}" style="width: 18rem;">
-                        <img src="./img/${producto.imagen}" class="card-img-top img-tarjeta-producto" alt="">
-                        <div class="card-body">
-                            <h5 class="card-subtitle mb-2 text-muted">${producto.nombre}</h5>
-                            <p class="card-text">Marca: ${producto.marca}</p>
-                            <p class="card-text">Tipo: ${producto.tipo}</p>
-                            <p class="card-text">Stock: ${producto.stock}</p>
-                            <p class="card-text">Precio: ${producto.precio}</p>
-                            <button class="btn btn-primary btnVerProducto">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                    ` 
-            }
-            
-        });
-    })
-}
-
-
-console.log(arrayProductos)
-
-// Mostrar dinamicamente productos en pagina "Mostrar Productos"
-
-let productosMostrar = document.getElementById("mostrarProductos")
-
-console.log(arrayProductos)
-
-mostrarProductos().then(productos =>{
-
-    productos.forEach((producto, index) => { 
-        if(productosMostrar){
-            productosMostrar.innerHTML += `
-                <div class="card cardFlex m-3" id="producto${index}" style="width: 18rem;">
-                    <img src="../img/${producto.img}" class="card-img-top img-tarjeta-producto" alt="imagen mate">
-                    <div class="card-body">
-                        <h5 class="card-subtitle mb-2 text-muted">${producto.nombre}</h5>
-                        <p class="card-text">Marca: ${producto.marca}</p>
-                        <p class="card-text">Tipo: ${producto.tipo}</p>
-                        <p class="card-text">Stock: ${producto.stock}</p>
-                        <p class="card-text">Precio: ${producto.precio}</p>
-                        <button class="btn btn-primary">Agregar al Carrito</button>
-                    </div>
-                </div>
-            ` 
-    }});
-})
-
-
-// Programa para agregar productos al carrito mediante evento "click"
-
-mostrarProductos().then(productos =>{
-
-    if(productosMostrar){
-    
-        arrayProductos.forEach((producto, index) => {
-            document.getElementById(`producto${index}`).lastElementChild.lastElementChild.addEventListener("click", () => {
-                let productoAgregar = producto
-                arrayCarrito.push(productoAgregar)
+    productosParse.forEach((producto, index) => {
         
-                // Toastify para indicar que el producto se agrego al carro
-                Toastify({
-                    text: "Producto agregado al Carrito",
-                    duration: 5000,
-                    destination: "https://github.com/apvarun/toastify-js",
-                    newWindow: true,
-                    close: true,
-                    gravity: "bottom", // `top` or `bottom`
-                    position: "left", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                      background: "linear-gradient(to right, #00b09b, #96c93d)",
-                    },
-                    onClick: function(){} // Callback after click
-                  }).showToast();
-            })
-        });
-    }
-})
+        productosMostrar.innerHTML += `
+        <div class="card cardFlex m-3" id="producto${index}" style="width: 18rem;">
+            <img src="../img/${producto.img}" class="card-img-top img-tarjeta-producto" alt="">
+            <div class="card-body">
+                <h5 class="card-subtitle mb-2 text-muted">${producto.nombre}</h5>
+                <p class="card-text">Marca: ${producto.marca}</p>
+                <p class="card-text">Tipo: ${producto.tipo}</p>
+                <p class="card-text">Precio: $ ${producto.precio}</p>
+                <button class="btn btn-primary btnVerProducto">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        `
+    })
 
-// Funcion agregar ID automaticamente a producto
+    productosParse.forEach((producto, index) => {
+        document.getElementById(`producto${index}`).lastElementChild.lastElementChild.addEventListener("click", () => {
+            let productoAgregar = producto
+            arrayCarrito.push(productoAgregar)
 
-const agregarIdProducto = function(array){
-    array.forEach((producto, index) => {
-        producto.id = index
+            // Guardado en localStorage el array con producto agregado a carrito:
+            localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
+    
+            // Toastify para indicar que el producto se agrego al carro
+            Toastify({
+                text: "Producto agregado al Carrito",
+                duration: 5000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+                }).showToast();
+        })
     });
+    
+}
+
+
+let productosMostrar = document.getElementById("mostrarProducto")
+let filtrados = document.getElementById("filtradoProductos")
+
+if(productosMostrar){
+    mostrarProductos()   
 }
 
 // Recuperacion de usuarios guardados en local storage(junto con la conversion a objetos par apoder manipular) o creacion de "usuarios" en localStorage 
 // en caso de que se ingrese por primera vez:
 
 localStorage.getItem("usuarios") ? arrayUsuario = JSON.parse(localStorage.getItem("usuarios")) : localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
-
-// Agregado automatico de ID a productos cargados
-agregarIdProducto(arrayProductos)
-
+localStorage.getItem("carrito") ? arrayCarrito = JSON.parse(localStorage.getItem("carrito")) : localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
 
 // Captura de elemento HTML para mostrar productos en HTML:
 let productosTarjetas = document.getElementById('tarjetasProductos')
-
-
-
-// Evento "click" en boton para borrar de la pagina principal las tarjetas de productos buscados:
-let borrarTarjetas = document.getElementById("reestablecer")
-
-//Uso de operador logico &&
-
-borrarTarjetas != null && borrarTarjetas.addEventListener('click', () => {
-        arrayProductos.forEach(() => {
-            productosTarjetas.innerHTML = ``
-        });
-    })
 
 // Evento para guardar mediante formulario nuevos usuarios
 
@@ -232,5 +165,109 @@ if(ingresoUsuario){
 }
 
 
+let desplegarCarrito = document.getElementById("carrito")
+let verCarrito = document.getElementById("cuerpoCarrito")
+let finalizarCompraCarrito = document.getElementById("finalizarCompra")
+let vaciarCarritoCompra = document.getElementById("vaciarCarrito")
 
-// console.log(arrayProductos)
+// Funcion Mostrar Carrito
+
+desplegarCarrito.addEventListener("click", () =>{
+
+    let total = sumaCarrito(arrayCarrito)
+    verCarrito.innerHTML = "" 
+
+    arrayCarrito.forEach(producto => {
+        
+        verCarrito.innerHTML += `
+
+        <div class="card mb-3" style="width: 100%";>
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../img/${producto.img}" style="width: 30%" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text"><small class="text-muted">$ ${producto.precio}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        `
+    });
+
+    verCarrito.innerHTML += `<span class="badge text-bg-success">Total: $ ${total}</span>` 
+})
+
+// Funcion Vaciar Carro
+
+vaciarCarritoCompra.addEventListener("click", () =>{
+    
+    let total = 0
+
+    // Limpieza de carrito una vez finalizada la compra
+    arrayCarrito = []
+    
+    // Guardado en localStorage el array con producto agregado a carrito:
+    localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
+
+    verCarrito.innerHTML = "" 
+    verCarrito.innerHTML += `<span class="badge text-bg-success">Total: $ ${total}</span>` 
+})
+
+// Funcion Finalizar Compra
+
+finalizarCompraCarrito.addEventListener("click", () =>{
+
+    let total = 0
+
+    if(arrayCarrito != []){
+        // Limpieza de carrito una vez finalizada la compra
+        arrayCarrito = []
+    
+        // Guardado en localStorage el array con producto agregado a carrito:
+        localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
+    
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Felicitaciones ! Has finalizado tu compra !',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    
+        verCarrito.innerHTML = "" 
+        verCarrito.innerHTML += `<span class="badge text-bg-success">Total: $ ${total}</span>` 
+
+    }else{
+        let timerInterval
+        Swal.fire({
+        title: 'Carrito Vacio !',
+        html: 'I will close in <b></b> milliseconds.',
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+        }
+        })
+    }
+    
+})
+
+
+
+
