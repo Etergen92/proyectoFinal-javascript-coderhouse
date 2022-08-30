@@ -89,7 +89,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Taragui",
+        "nombre": "Yerba Mate Taragui(1000gr.)",
         "marca": "Taragui",
         "peso": "1000gr",
         "precio": 781,
@@ -97,18 +97,10 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Taragui",
+        "nombre": "Yerba Mate Taragui(500gr.)",
         "marca": "Taragui",
         "peso": "500gr",
         "precio": 381,
-        "img": "yerba-taragui.jpg"
-    },
-    {
-        "tipo": "yerba",
-        "nombre": "Yerba Mate Taragui",
-        "marca": "Taragui",
-        "peso": "250gr",
-        "precio": 222,
         "img": "yerba-taragui.jpg"
     },
     {

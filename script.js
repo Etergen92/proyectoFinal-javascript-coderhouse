@@ -116,19 +116,28 @@ if(formularioUsuario != null){
         let email = document.getElementById("inputEmail").value
         let ciudad = document.getElementById("inputCiudad").value
         let provincia = document.getElementById("inputProvincia").value
+        
+        if(usuario != "" && password != "" && email != "" && ciudad != "" && provincia != ""){
+            const nuevoUsuario = new Usuario(usuario, password, email, ciudad, provincia)
+            arrayUsuario.push(nuevoUsuario)
     
-        const nuevoUsuario = new Usuario(usuario, password, email, ciudad, provincia)
-        arrayUsuario.push(nuevoUsuario)
+            // Guardado en localStorage el array con nuevo usuario registrado:
+            localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
+            formularioUsuario.reset()
+    
+            Swal.fire({
+                icon: 'success',
+                title: 'Felicitaciones !',
+                text: 'Usted se ha registrado de manera exitosa',
+            })
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debe ingresar datos válidos',
+              })
+        }
 
-        // Guardado en localStorage el array con nuevo usuario registrado:
-        localStorage.setItem("usuarios", JSON.stringify(arrayUsuario))
-        formularioUsuario.reset()
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Felicitaciones !',
-            text: 'Usted se ha registrado de manera exitosa',
-        })
     })
 }
 
@@ -145,8 +154,7 @@ if(ingresoUsuario){
 
         let usuarioRegistrado = arrayUsuario.find(usuario => usuario.usuario == usuarioIngreso)
 
-        
-        if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword){
+        if(usuarioRegistrado && usuarioRegistrado.password === usuarioPassword && usuarioRegistrado != "" && usuarioPassword != ""){
                 // Desestructuracion objeto usuarioRegistrado
                 let{usuario} = usuarioRegistrado
                 Swal.fire({
@@ -158,7 +166,7 @@ if(ingresoUsuario){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Contraseña o usuario incorrectos',
+                    text: 'Usuario o contraseña incorrectos',
                   })
             }
     })

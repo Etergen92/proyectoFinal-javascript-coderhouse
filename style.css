@@ -74,10 +74,20 @@
     padding: 30px;
 }
 
-.contactoClientes{
-    padding: 100px;
+.contactoRedes{
+    content: "\f09a";
+    color: #00AF91;
+    font-size: 40px;
     display: flex;
     justify-content: space-around;
+}
+
+.contactoRedesIconos{
+    color: #00AF91;
+}
+
+.contactoMapa{
+    margin: 40px;
 }
 
 .formContacto{
@@ -136,6 +146,23 @@
     padding: 20px;
 }
 
+.titulosContacto{
+    margin: 30px;
+}
+
+.consultaTexto{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.checkRedes{
+    margin: 20px;
+}
+
+.botonContacto{
+    margin: 20px;
+}
+
 /* CSS Mostrar Productos */
 
 .imgCarrousel{
@@ -175,16 +202,7 @@
 
 /* CSS Ofertas */
 
-.inicioPrincipalOfertas{
-    display: grid;
-    background-color: #007965;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-        "area1"
-        "area2"
-        "area3"
-    ;
-}
+
 
 .img-tarjeta-producto{
     width: 100%;
@@ -206,9 +224,27 @@ a:visited {
     color: white;
 }
 
+.mate-login{
+    height: 750px;
+    width: 100%;
+    margin-bottom: 50px;
+    object-fit: cover;
+}
+
 .formulario{
     background-color: #F6F6F6;
-    padding:  10px;
+}
+
+.formulariosLogin{
+    margin-bottom: 50px;
+}
+
+.bloqueOpciones{
+    margin: 0 auto;
+}
+
+.botonLogin{
+    margin: 20px;
 }
 
 .registroExitoso, .mensajeInicioSesion, .mensajeInicioIncorrecto{
