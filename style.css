@@ -200,8 +200,7 @@
 }
 
 
-/* CSS Ofertas */
-
+/* CSS Login */
 
 
 .img-tarjeta-producto{
@@ -227,7 +226,7 @@ a:visited {
 .mate-login{
     height: 750px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     object-fit: cover;
 }
 
@@ -237,6 +236,14 @@ a:visited {
 
 .formulariosLogin{
     margin-bottom: 50px;
+}
+
+.tituloRegistro{
+    margin: 30px;
+}
+
+.tituloInicioSesion{
+    margin: 45px;
 }
 
 .bloqueOpciones{

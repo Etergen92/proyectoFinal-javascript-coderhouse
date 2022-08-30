@@ -41,7 +41,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Mañanita",
+        "nombre": "Yerba Mate Mañanita(1000gr)",
         "marca": "Mañanita",
         "peso": "1000gr",
         "precio": 999,
@@ -49,7 +49,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Mañanita",
+        "nombre": "Yerba Mate Mañanita(500gr)",
         "marca": "Mañanita",
         "peso": "500gr",
         "precio": 599,
@@ -73,7 +73,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Nobleza Gaucha Selección",
+        "nombre": "Nobleza Gaucha Selección(1000gr)",
         "marca": "Nobleza Gaucha",
         "peso": "1000gr",
         "precio": 782,
@@ -81,7 +81,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Nobleza Gaucha Selección Especial",
+        "nombre": "Nobleza Gaucha Selección Especial(500gr)",
         "marca": "Nobleza Gaucha",
         "peso": "500gr",
         "precio": 408,
@@ -89,7 +89,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Taragui(1000gr.)",
+        "nombre": "Yerba Mate Taragui(1000gr)",
         "marca": "Taragui",
         "peso": "1000gr",
         "precio": 781,
@@ -97,7 +97,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Taragui(500gr.)",
+        "nombre": "Yerba Mate Taragui(500gr)",
         "marca": "Taragui",
         "peso": "500gr",
         "precio": 381,
@@ -105,7 +105,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Rosamonte Selección",
+        "nombre": "Yerba Mate Rosamonte Selección(1000gr)",
         "marca": "Rosamonte",
         "peso": "1000gr",
         "precio": 854,
@@ -113,7 +113,7 @@
     },
     {
         "tipo": "yerba",
-        "nombre": "Yerba Mate Rosamonte Selección",
+        "nombre": "Yerba Mate Rosamonte Selección(500gr)",
         "marca": "Rosamonte",
         "peso": "500gr",
         "precio": 520,

@@ -229,9 +229,9 @@ vaciarCarritoCompra.addEventListener("click", () =>{
 
 finalizarCompraCarrito.addEventListener("click", () =>{
 
-    let total = 0
+    if(arrayCarrito.length != 0){
 
-    if(arrayCarrito != []){
+        let total = 0
         // Limpieza de carrito una vez finalizada la compra
         arrayCarrito = []
     
@@ -250,28 +250,12 @@ finalizarCompraCarrito.addEventListener("click", () =>{
         verCarrito.innerHTML += `<span class="badge text-bg-success">Total: $ ${total}</span>` 
 
     }else{
-        let timerInterval
-        Swal.fire({
-        title: 'Carrito Vacio !',
-        html: 'I will close in <b></b> milliseconds.',
-        timer: 1500,
-        timerProgressBar: true,
-        didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
-        }
-        }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-        }
-        })
+        // Advertencia de carro vacio si se quiere finalizar compra
+        Swal.fire(
+            'Carrito Vacio',
+            'Para finalizar compra debe cargar productos al carrito',
+            'question'
+          )
     }
     
 })
